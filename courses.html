@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thukten Dorji - Courses</title>
+    <!-- Favicon link -->
+    <link rel="icon" type="image/png" href="Screen Shot 2025-11-23 at 9.48.19 AM.png-38db9882-8a6e-45a8-a723-764d02c7ce09" />
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="thukten.png" type="image/png">
+    
+    <!-- EMBEDDED CUSTOM STYLES -->
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0615; 
+            min-height: 100vh;
+            color: white;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Custom Colors */
+        .text-neon-pink { color: #ec4899; }
+        .text-neon-blue { color: #3b82f6; }
+        .text-neon-yellow { color: #facc15; } /* New color for course accent */
+        
+        /* Header Border */
+        .header-border {
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(to right, #0d0615, #ec4899, #3b82f6, #0d0615);
+            border-image-slice: 1;
+        }
+        
+        /* Message Card Styling */
+        .message-card {
+            background-color: #1a0b32;
+            border: 2px solid #3b82f6;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+        
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-sm shadow-lg header-border">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo/Name: THUKTEN -->
+            <div class="text-xl font-bold text-neon-blue tracking-widest uppercase">
+                THUKTEN
+            </div>
+            <!-- Navigation Links -->
+            <nav class="space-x-6 text-sm font-bold uppercase tracking-wide">
+                <a href="index.html" class="text-gray-300 hover:text-neon-pink transition duration-300">Home</a>
+                <a href="art_gallery.html" class="text-gray-300 hover:text-neon-pink transition duration-300">Sculpture</a>
+                <a href="portfolio.html" class="text-gray-300 hover:text-neon-pink transition duration-300">Painting Portfolio</a>
+                <!-- Link to the Courses Page (Current Page) -->
+                <a href="courses.html" class="text-neon-yellow transition duration-300">Courses</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="courses" class="py-20 flex items-center justify-center min-h-[70vh]">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-extrabold text-center mb-4 text-gray-100">
+                Educational Offerings
+            </h1>
+            <p class="text-xl text-center text-gray-400 mb-16">
+                Workshops and instructional materials for traditional and modern art forms.
+            </p>
+
+            <!-- Unavailability Message Card -->
+            <div class="message-card max-w-2xl mx-auto rounded-xl p-8 md:p-12 text-center">
+                <svg class="w-12 h-12 text-neon-yellow mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h2 class="text-3xl font-bold text-neon-yellow mb-4">
+                    Online Courses Currently Unavailable
+                </h2>
+                <p class="text-gray-300 text-lg">
+                    We are currently redesigning our online curriculum to provide the highest quality learning experience.
+                    Please check back soon for updated schedules, new enrollment details, and course content.
+                </p>
+                <div class="mt-8">
+                    <a href="index.html" class="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg shadow-xl transition duration-300 transform hover:scale-105">
+                        ← Return to Home
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-black/90 text-gray-400 py-10 mt-12">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 Thukten Dorji. Courses Page.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

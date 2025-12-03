@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thukten Dorji - Sprit from Bhutan</title>
+    <!-- Favicon link (Using placeholder imnge from uploads) -->
+    <link rel="icon" type="image/png" href="Screen Shot 2025-11-23 at 9.48.19 AM.png-38db9882-8a6e-45a8-a723-764d02c7ce09" />
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for Icons (Social Media) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="thukten.png" type="image/png">
+
+    
+    <!-- EMBEDDED CUSTOM STYLES: DEEP PURPLE & NEON GLOW THEME -->
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0615; /* Deep purple/black background */
+            min-height: 100vh;
+            color: white;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Neon-Glow Colors (Orange/Pink/Blue gradient) */
+        .text-orange-neon { 
+            color: #ff8c00; 
+            /* Added text shadow for dramatic glow effect on the headline's neon word */
+            text-shadow: 0 0 10px rgba(255, 140, 0, 0.6), 0 0 20px rgba(255, 140, 0, 0.4);
+        } 
+        .text-pink-neon { color: #ec4899; }
+        .text-blue-neon { color: #3b82f6; }
+
+        /* Background Gradient (for the top section) */
+        .hero-bg {
+            background-image: linear-gradient(135deg, #0d0615 0%, #1a0b32 50%, #0d0615 100%);
+        }
+
+        /* --- GLOWING PROFILE CARD STYLES --- */
+        
+        /* Define variables for the glow effect */
+        .glowing-container {
+            width: 20rem; 
+            position: relative;
+            padding: 4px; /* Space for the glow border */
+            border-radius: 1.5rem; /* rounded-xl */
+            cursor: pointer; /* Added pointer to hint clickability */
+        }
+
+        /* The Animated Glowing Border */
+        .glowing-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 1.5rem; /* rounded-xl */
+            z-index: 5;
+            
+            --glow-color-start: #ec4899; /* Neon Pink */
+            --glow-color-end: #3b82f6; /* Neon Blue */
+
+            box-shadow: 
+                0 0 10px rgba(59, 130, 246, 0.5),      /* Blue inner glow */
+                0 0 20px rgba(236, 72, 153, 0.5),      /* Pink outer glow */
+                inset 0 0 10px var(--glow-color-start); /* Inner color blending */
+
+            animation: pulse-glow 4s infinite alternate;
+            display: block; 
+        }
+
+        /* The Content Card */
+        .card-content {
+            position: relative;
+            background-color: #160a28; 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 1.5rem;
+            width: 100%;
+            padding: 3rem 1.5rem; 
+            z-index: 15;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: none;
+            border: none;
+        }
+
+        /* Keyframe Animation for the pulse effect */
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 
+                    0 0 10px var(--glow-color-start), 
+                    0 0 30px rgba(236, 72, 153, 0.8),
+                    inset 0 0 15px var(--glow-color-start);
+            }
+            100% {
+                box-shadow: 
+                    0 0 15px var(--glow-color-end), 
+                    0 0 40px rgba(59, 130, 246, 0.7),
+                    inset 0 0 10px var(--glow-color-end);
+            }
+        }
+        
+        /* --- IMAGE ZOOM/FOCUS EFFECT STYLES --- */
+        #profile-img {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .zoomed-focus #profile-img {
+            transform: scale(1.2) rotate(8deg); /* Made scale and rotation more pronounced */
+        }
+
+        .zoomed-focus .card-content {
+            /* Dim the content slightly to focus on the image */
+            filter: brightness(0.8); /* Dim less to ensure text is still readable */
+            transition: filter 0.5s ease;
+        }
+        /* --- END GLOWING PROFILE CARD STYLES --- */
+
+
+        /* Header Border */
+        .header-border {
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(to right, #0d0615, #ec4899, #3b82f6, #0d0615);
+            border-image-slice: 1;
+        }
+        
+        /* Card Style for Portfolio Items (retained original styles) */
+        .portfolio-card {
+            background-color: #160a28;
+            border: 1px solid #2f273d;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .portfolio-card:hover {
+        transform: scale(1.5); /* Zoom out the card */
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2); /* Keep the shadow for effect */
+        }
+        .portfolio-card.sculpture:hover {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.7); /* Blue Glow */
+        }
+        .portfolio-card.painting:hover {
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.7); /* Pink Glow */
+        }
+        .portfolio-card.courses:hover {
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.7); /* Orange Glow */
+        }
+        
+        /* Custom Button Style */
+        .btn-purple {
+            background: linear-gradient(90deg, #7c3aed, #a855f7);
+            transition: all 0.3s ease;
+            color: white; /* Ensure text is white */
+            font-weight: 700;
+        }
+        .btn-purple:hover {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
+            transform: scale(1.05);
+        }
+        
+        /* Outline Button Style (Neon Blue) */
+        .btn-outline-neon {
+            border: 2px solid #3b82f6; /* Blue Neon */
+            color: #3b82f6;
+        }
+        .btn-outline-neon:hover {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-sm shadow-lg header-border">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo/Name: THUKTEN - NOW A LINK TO HOME (#home) -->
+            <a href="#home" class="text-xl font-bold text-blue-neon tracking-widest uppercase hover:text-pink-neon transition duration-300">
+                THUKTEN
+            </a>
+            <!-- Navigation Links: Links remain the same -->
+            <nav class="space-x-6 text-sm font-bold uppercase tracking-wide">
+                <a href="#home" class="text-pink-neon transition duration-300">Home</a>
+                <a href="art_gallery.html" class="text-gray-300 hover:text-pink-neon transition duration-300">Sculpture</a>
+                <a href="portfolio.html" class="text-gray-300 hover:text-pink-neon transition duration-300">Painting</a>
+                <a href="courses.html" class="text-gray-300 hover:text-pink-neon transition duration-300">Courses</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg py-20 md:py-32">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between">
+                
+                <!-- Left Content Area -->
+                <div class="lg:w-8/12 mb-12 lg:mb-0 text-center lg:text-left">
+                    <!-- Subtitle: Increased size to lg and margin-bottom -->
+                    <p class="text-base md:text-lg font-semibold uppercase tracking-widest mb-4 text-pink-neon">
+                        THE ROYAL ACADEMY, BHUTAN
+                    </p>
+                    <!-- Main Headline: Increased size to 9xl and margin-bottom, added glow via CSS text-shadow -->
+                    <h1 class="text-6xl md:text-8xl lg:text-9xl font-extrabold leading-tight mb-8">
+                        <span class="text-gray-100">Documenting</span>
+                        <span class="text-orange-neon block">myself.</span>
+                    </h1>
+                    <!-- Paragraph: Increased size to 2xl and margin-bottom -->
+                    <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mb-10 mx-auto lg:mx-0">
+                        Fusing the rich cultural heritage of Bhutan with a passion for innovation and digital creation. Practical, artistic, and driven.
+                    </p>
+                    
+                    <div class="flex justify-center lg:justify-start space-x-4">
+                        <a href="art_gallery.html" class="btn-purple font-bold py-3 px-8 rounded-lg shadow-lg">
+                            Explore My Art
+                        </a>
+                        <!-- Reverted to neon outline button style -->
+                        <a href="#about" class="bg-transparent border-2 btn-outline-neon font-bold py-3 px-8 rounded-lg transition duration-300">
+                            Learn About Me
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Profile Card -->
+                <div class="lg:w-3/12 flex justify-center mt-10 lg:mt-0">
+                    <!-- Added ID for JavaScript interaction -->
+                    <div class="glowing-container" id="profile-card">
+                        <!-- 1. The Animated Glowing Border Frame -->
+                        <div class="glowing-frame"></div>
+
+                        <!-- 2. The Inner Content Card -->
+                        <div class="card-content">
+                            <!-- Profile Image with Neon Pink Border -->
+                            <div class="relative w-40 h-40 rounded-full overflow-hidden mb-6 border-4 border-pink-neon shadow-lg shadow-blue-neon/50">
+                                <!-- Added ID for JavaScript interaction -->
+                                <img src="img.png" 
+                                     alt="Thukten Dorji Profile" 
+                                     class="w-full h-full object-cover"
+                                     id="profile-img"
+                                     onerror="this.onerror=null;this.src='https://placehold.co/160x160/160a28/3b82f6?text=TD'"
+                                >
+                            </div>
+                            
+                            <h2 class="text-4xl font-extrabold text-gray-100 mb-1">Thukten Dorji</h2>
+                            <p class="text-blue-neon text-xl font-medium mb-3">Student at The Royal Academy</p>
+                            
+                            <!-- NEW: Social Media Message Display Area -->
+                            <p id="social-message" class="text-lg text-orange-neon font-semibold h-6 mb-5 opacity-0 transition-opacity duration-300">
+                                &nbsp; 
+                            </p>
+                            
+                            <!-- Social Media Links -->
+                            <!-- ADDED: data-username attributes and social-icon class for JS -->
+                            <div class="flex space-x-7 text-4xl">
+                                <a href="javascript:void(0);" data-username="@itsthukss" class="social-icon text-gray-400 hover:text-blue-neon transition duration-300 transform hover:scale-110" title="Click to view/copy X username">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="javascript:void(0);" data-username="@thuk_ten9" class="social-icon text-gray-400 hover:text-pink-neon transition duration-300 transform hover:scale-110" title="Click to view/copy Instagram username">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="javascript:void(0);" data-username="Thukten Dorji" class="social-icon text-gray-400 hover:text-blue-neon transition duration-300 transform hover:scale-110" title="Click to view/copy LinkedIn username">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Overview Section -->
+    <section id="portfolio-overview" class="py-20 md:py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-extrabold text-center mb-16 text-gray-100">
+                Creative Disciplines
+            </h2>
+            
+            <!-- Grid for 3 columns -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Card 1: Sculpture Work (Blue Accent & Hover Glow) -->
+                <div class="portfolio-card sculpture rounded-xl p-6 md:p-8">
+                    <p class="text-sm font-semibold uppercase tracking-widest mb-2 text-blue-neon">
+                        TRADITIONAL ARTS
+                    </p>
+                    <h3 class="text-3xl font-bold text-gray-100 mb-4">
+                        Sculpture Work
+                    </h3>
+                    <p class="text-gray-400 mb-6">
+                        Jinzo (sculpture) is the art of creating religious and spiritual figures, 
+                        usually from clay, and is closely tied to Buddhist faith. A key part of Bhutan's
+                         13 traditional arts, these sculptures represent deities and are used in monasteries and homes.
+                    </p>
+                    <!-- Link uses Blue/Pink hover -->
+                    <a href="art_gallery.html" class="inline-flex items-center text-blue-neon font-semibold hover:text-pink-neon transition duration-300">
+                        View Gallery →
+                    </a>
+                </div>
+
+                <!-- Card 2: Painting Portfolio (Pink Accent & Hover Glow) -->
+                <div class="portfolio-card painting rounded-xl p-6 md:p-8">
+                    <p class="text-sm font-semibold uppercase tracking-widest mb-2 text-pink-neon">
+                        FINE ARTS
+                    </p>
+                    <h3 class="text-3xl font-bold text-gray-100 mb-4">
+                        Painting Portfolio
+                    </h3>
+                    <p class="text-gray-400 mb-6">
+                        From Thangkas reflecting deep Buddhist philosophy to modern watercolors exploring the landscapes of Bhutan and its people.
+                    </p>
+                    <!-- Link uses Pink/Blue hover -->
+                    <a href="portfolio.html" class="inline-flex items-center text-pink-neon font-semibold hover:text-blue-neon transition duration-300">
+                        View Portfolio →
+                    </a>
+                </div>
+                
+                <!-- Card 3: Courses Overview (Orange Accent & Hover Glow) -->
+                <div class="portfolio-card courses rounded-xl p-6 md:p-8">
+                    <p class="text-sm font-semibold uppercase tracking-widest mb-2 text-orange-neon">
+                        EDUCATION
+                    </p>
+                    <!-- Increased headline text size from text-3xl to text-4xl -->
+                    <h3 class="text-4xl font-extrabold text-gray-100 mb-4">
+                        Online Courses
+                    </h3>
+                    <!-- Increased body text size from default/base to text-lg -->
+                    <p class="text-lg text-gray-300 mb-6">
+                        Instructional workshops covering both traditional Bhutanese craftsmanship and contemporary digital design principles. Access self-paced learning resources here.
+                    </p>
+                    <!-- Link uses Orange/Blue hover -->
+                    <a href="courses.html" class="inline-flex items-center text-orange-neon font-semibold hover:text-blue-neon transition duration-300">
+                        View Course Status →
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- About/Contact Section Placeholder -->
+    
+<section id="contact" class="py-20 md:py-32">
+    <div class="container mx-auto px-4 max-w-3xl text-center">
+
+        <p class="text-gray-400 text-xl italic mb-6">
+            “Every great connection begins with a simple message.”
+        </p>
+
+        <h2 class="text-4xl font-bold mb-10 text-neon-orange">Let's Connect</h2>
+
+        <div class="bg-[#1a0b32] p-10 rounded-2xl shadow-2xl border border-[#2f273d]">
+            
+            <p class="text-lg text-gray-300 mb-3">Feel free to reach out to me at:</p>
+
+            <a href="mailto:dthukten99@gmail.com"
+               class="text-neon-pink text-2xl font-semibold hover:underline">
+               dthukten99@gmail.com
+            </a>
+
+            <div class="mt-10">
+                <a href="index.html"
+                   class="bg-neon-blue text-white font-bold py-3 px-10 rounded-full hover:bg-blue-600 transition duration-300">
+                   Go to Homepage
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer Section -->
+    <footer class="bg-black/90 text-gray-400 py-10">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 Thukten Dorji. Student at the royal Academy.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for Profile Card Interaction -->
+    <script>
+        // Store the timeout ID globally to manage it
+        let socialMessageTimeout;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileCard = document.getElementById('profile-card');
+            const socialIcons = document.querySelectorAll('.social-icon');
+            const socialMessage = document.getElementById('social-message');
+
+            // --- 1. Toggle Zoom Effect (Made more noticeable) ---
+            if (profileCard) {
+                profileCard.addEventListener('click', () => {
+                    profileCard.classList.toggle('zoomed-focus');
+                });
+            }
+
+            // --- 2. Social Media Username Display & Copy ---
+            socialIcons.forEach(icon => {
+                icon.addEventListener('click', (e) => {
+                    e.preventDefault(); // Stop the default link action (which is just to refresh the page)
+
+                    // Clear any existing timeout and message
+                    clearTimeout(socialMessageTimeout);
+                    socialMessage.classList.remove('opacity-100');
+                    socialMessage.classList.add('opacity-0');
+                    
+                    const username = e.currentTarget.getAttribute('data-username');
+                    
+                    // Attempt to copy the username to the clipboard
+                    const tempInput = document.createElement('input');
+                    document.body.appendChild(tempInput);
+                    tempInput.value = username;
+                    tempInput.select();
+                    
+                    let messageText = `Username: ${username}`;
+                    
+                    try {
+                        document.execCommand('copy');
+                        messageText = `${username} copied!`;
+                    } catch (err) {
+                        // Copy failed (common in sandbox environments), just display the name.
+                        messageText = `Username: ${username}`;
+                    }
+                    
+                    document.body.removeChild(tempInput);
+
+                    // Update and show the message
+                    socialMessage.textContent = messageText;
+                    socialMessage.classList.remove('opacity-0');
+                    socialMessage.classList.add('opacity-100');
+
+                    // Hide the message after 3 seconds
+                    socialMessageTimeout = setTimeout(() => {
+                        socialMessage.classList.remove('opacity-100');
+                        socialMessage.classList.add('opacity-0');
+                    }, 3000);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

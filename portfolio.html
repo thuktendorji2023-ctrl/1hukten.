@@ -1,0 +1,168 @@
+<Doctype html>
+    <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thukten Dorji - painting at TRA </title>
+    <!-- Favicon link -->
+    <link rel="icon" type="image/png" href="Screen Shot 2025-11-23 at 9.48.19 AM.png-38db9882-8a6e-45a8-a723-764d02c7ce09" />
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="thukten.png" type="image/png">
+    
+    <!-- EMBEDDED CUSTOM STYLES -->
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0615; 
+            min-height: 100vh;
+            color: white;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Custom Colors */
+        .text-neon-pink { color: #ec4899; }
+        .text-neon-blue { color: #3b82f6; }
+        
+        /* Header Border */
+        .header-border {
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(to right, #0d0615, #ec4899, #3b82f6, #0d0615);
+            border-image-slice: 1;
+        }
+        
+        /* Gallery Card Styling */
+        .gallery-card {
+            background-color: #160a28;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            border: 1px solid #2f273d;
+        }
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2), 0 0 15px rgba(236, 72, 153, 0.4);
+        }
+        .gallery-image {
+            width: 100%;
+            height: 300px; /* Fixed height for consistent grid appearance */
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-card:hover {
+            transform: scale(1.2); /* Zoom out the card */
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2), 0 0 15px rgba(236, 72, 153, 0.4); /* Soft glowing shadow */
+        }
+        
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-sm shadow-lg header-border">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo/Name: THUKTEN -->
+            <div class="text-xl font-bold text-neon-blue tracking-widest uppercase">
+                THUKTEN
+            </div>
+            <!-- Navigation Links -->
+            <nav class="space-x-6 text-sm font-bold uppercase tracking-wide">
+                <a href="index.html" class="text-gray-300 hover:text-neon-pink transition duration-300">Home</a>
+                <a href="#gallery" class="text-neon-pink transition duration-300">Art Gallery</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="gallery" class="py-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-extrabold text-center mb-4 text-gray-100">
+                The masterpiece  
+            </h1>
+            <p class="text-xl text-center text-gray-400 mb-12">
+                At The Royal Academy
+            </p>
+
+            <!-- Gallery Grid Container -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Gallery Item 1: painting-->
+                <div class="gallery-card rounded-xl shadow-xl">
+                    <img class="gallery-image rounded-t-xl" 
+                         src="td.jpeg" 
+                         alt="painting" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=Error';"
+                    />
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-1 text-neon-blue">Bumpa</h3>
+                        <p class="text-gray-400 text-sm">The bumpa (Dzongkha: བུམ་པ་)  It is considered a symbol of the universe's expanse in some contexts.
+                        <span class="text-xs text-neon-pink font-medium mt-2 block">Category: painting</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2: Painting -->
+                <div class="gallery-card rounded-xl shadow-xl">
+                    <img class="gallery-image rounded-t-xl" 
+                         src="td1.jpeg" 
+                         alt="Gyeltshen" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/ec4899/ffffff?text=Error';"
+                    />
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-1 text-neon-pink">Gyeltshen</h3>
+                        <p class="text-gray-400 text-sm">Gyeltshen represents as a umbrella of buddha.</p>
+                        <span class="text-xs text-neon-blue font-medium mt-2 block">Category: Painting</span>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3: all-->
+                <div class="gallery-card rounded-xl shadow-xl">
+                    <img class="gallery-image rounded-t-xl" 
+                         src="td3.jpeg" 
+                         alt="Combination of both" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/8b5cf6/ffffff?text=Error';"
+                    />
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-1 text-neon-blue">Seven line player</h3>
+                        <p class="text-gray-400 text-sm">Made by a groud of students using technology.</p>
+                        <span class="text-xs text-neon-pink font-medium mt-2 block">Category: all</span>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4: Painting -->
+                <div class="gallery-card rounded-xl shadow-xl">
+                    <img class="gallery-image rounded-t-xl" 
+                         src="td2.jpeg" 
+                         alt="Pema" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/ec4899/ffffff?text=Error';"
+                    />
+                    <div class="p-5">
+                        <h3 class="text-xl font-semibold mb-1 text-neon-pink">Meto Pema </h3>
+                        <p class="text-gray-400 text-sm">represents the words of the buddha.</p>
+                        <span class="text-xs text-neon-blue font-medium mt-2 block">Category: Painting</span>
+                    </div>
+                </div>
+
+                <!-- NOTE: Items 5 through 9 have been removed to meet the "only four" requirement. -->
+
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="index.html" class="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg shadow-xl transition duration-300 transform hover:scale-105">
+                    ← Back to Home
+                </a>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-black/90 text-gray-400 py-10 mt-12">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 The Royal Academy. Art Gallery Showcase.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
